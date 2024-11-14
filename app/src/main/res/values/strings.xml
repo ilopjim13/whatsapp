@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">whatsapp</string>
+    <string name="app_name">Whatsapp</string>
+    <string name="chats">Chats</string>
+    <string name="novedades">Novedades</string>
+    <string name="comunidades">Comunidades</string>
+    <string name="llamadas">Llamadas</string>
 </resources>
