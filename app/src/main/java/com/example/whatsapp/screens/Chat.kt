@@ -288,11 +288,7 @@ fun EscribirMensaje(contacto: Contacto) {
                     .size(60.dp, 60.dp)
                     .clip(CircleShape)
             ) {
-                Icon(
-                    imageVector = Icons.Filled.Mic,
-                    contentDescription = "Mic",
-                    Modifier.size(60.dp)
-                )
+                Icon(imageVector = Icons.Filled.Mic, contentDescription = "Mic",)
             }
         } else {
             Button(
