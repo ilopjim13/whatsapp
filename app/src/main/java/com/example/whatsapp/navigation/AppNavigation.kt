@@ -7,23 +7,30 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.whatsapp.Contacto
 import com.example.whatsapp.screens.ChatScreen
 import com.example.whatsapp.screens.InicioScreen
+import com.google.gson.Gson
 
 @Composable
 fun AppNavigation(modifier: Modifier) {
     val navControlador = rememberNavController()
+
     NavHost(navController = navControlador, startDestination = AppScreen.IncioScreen.route) {
         composable(AppScreen.IncioScreen.route) {
             InicioScreen(navControlador, modifier)
         }
         composable(AppScreen.ChatScreen.route
-                //+ "/{contact}", arguments = listOf(navArgument(name = "") {
-            //type = NavType.StringType
-        ) {
+                + "/{contact}", arguments = listOf(navArgument(name = "contact") {
+            type = NavType.StringType
+        })) {
+            val gson = Gson()
+            val contactoJson = it.arguments?.getString("contact")
+            val contacto = gson.fromJson(contactoJson, Contacto::class.java)
             ChatScreen(
                 navControlador,
-                modifier)
+                modifier,
+                contacto)
         }
     }
 }

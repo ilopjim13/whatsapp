@@ -1,3 +1,7 @@
 package com.example.whatsapp
 
-data class Contacto(val nombre:String, val ultimoMensaje:String, val hora:String, val ultimaConexion:String, val leido:Boolean = true, val isVisibleConexion:Boolean = false, val mensajesEnvidaos:List<String> = listOf(), val mensajesRecibidos:MutableList<String>  = mutableListOf())
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
+
+data class Contacto(val nombre:String, var hora:String, val ultimaConexion:String, var leido:Boolean = true, var responder:Boolean = false, val isVisibleConexion:Boolean = false, val mensajesEnviados:SnapshotStateList<String>  = mutableStateListOf(), val mensajesRecibidos:SnapshotStateList<String>  = mutableStateListOf()){
+}
